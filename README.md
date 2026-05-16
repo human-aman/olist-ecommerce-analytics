@@ -94,6 +94,8 @@ State-level analysis revealed a consistent pattern across order volume:
 - Subqueries for regional maturity model and state-level performance analysis
 - Data quality handling — corrupted CSV rows, geolocation duplicates, empty timestamp strings
 
+View all queries: [queries.sql](queries.sql)
+
 **Power BI**
 - Interactive dashboard covering growth trends, AOV, retention, category performance, delivery CX, and regional analysis
 - Custom measures for low score rate and delivery bucket classification

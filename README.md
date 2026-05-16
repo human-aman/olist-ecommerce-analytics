@@ -11,6 +11,8 @@ Olist connects small Brazilian retailers to major e-commerce channels. This anal
 
 The goal was not to report metrics but to diagnose what was driving performance and where the business had untapped opportunity.
 
+![Olist Analytics Dashboard](Dashboard.png)
+
 ---
 
 ## Key Findings

@@ -49,7 +49,7 @@ from (
 	on orders.customer_id = customers.customer_id
 	group by customers.customer_unique_id order by 2 desc) X;
 
---Corrected query for delivery time bucket analysis of Review Scores
+--Delivery time bucket analysis of Review Scores
 SELECT
     CASE
         WHEN DATE_PART('day', o.order_delivered_customer_date::timestamp -
@@ -99,7 +99,7 @@ where orders.order_purchase_timestamp > '2017-10-31' and orders.order_purchase_t
 group by Y.product_category_name_english, Y.price, Y.product_id order by 3 desc) Z
 group by Z.product_category_name_english order by 2 desc;
 
---Corrected Regional Analysis of States by dilivery time buckets
+--Regional Analysis of States by dilivery time buckets
 select g.geolocation_state as State, SUM(Y.review_score::INTEGER)*1.0/COUNT(y.order_id) as Avg_Review_Score, AVG(DATE_PART('day', Y.order_delivered_customer_date::TIMESTAMP - Y.order_purchase_timestamp::TIMESTAMP)) as Avg_Delivery_Days, COUNT(Y.order_id) as Order_Count, ROUND(COUNT(case when Y.review_score < 4 then Y.order_id end)*100.0/COUNT(Y.order_id),2) as Low_Score_Rate
 from (select X.customer_id, X.order_id, X.customer_state ,X.customer_zip_code_prefix, X.order_delivered_customer_date, X.order_purchase_timestamp, t.review_score::INTEGER
 from (select c.customer_id, o.order_id, c.customer_state ,c.customer_zip_code_prefix, o.order_delivered_customer_date, o.order_purchase_timestamp, o.order_status 
